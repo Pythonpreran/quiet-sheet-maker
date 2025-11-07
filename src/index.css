@@ -1,0 +1,189 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Soft, native-feeling design system */
+    --background: 210 20% 98%;
+    --foreground: 210 15% 25%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 210 15% 25%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 15% 25%;
+
+    /* Muted teal primary - softer and less saturated */
+    --primary: 180 45% 42%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 180 30% 92%;
+    --primary-dark: 180 50% 35%;
+
+    /* Soft neutrals */
+    --secondary: 210 15% 95%;
+    --secondary-foreground: 210 15% 25%;
+
+    --muted: 210 10% 94%;
+    --muted-foreground: 210 12% 50%;
+
+    /* Subtle accent */
+    --accent: 200 50% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 60% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 142 50% 45%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 70% 55%;
+    --warning-foreground: 0 0% 100%;
+
+    --border: 210 15% 90%;
+    --input: 210 15% 92%;
+    --ring: 180 45% 42%;
+
+    --radius: 1rem;
+    
+    /* Soft, natural shadows */
+    --shadow-sm: 0 1px 2px 0 hsl(210 15% 25% / 0.03);
+    --shadow-md: 0 2px 8px -2px hsl(210 15% 25% / 0.08);
+    --shadow-lg: 0 4px 16px -4px hsl(210 15% 25% / 0.12);
+    --shadow-xl: 0 8px 32px -8px hsl(210 15% 25% / 0.16);
+    
+    /* Smooth, natural transitions */
+    --transition-base: all 400ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --transition-fast: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    
+    /* Subtle gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(180 45% 42%) 0%, hsl(180 50% 48%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(200 50% 55%) 0%, hsl(210 45% 60%) 100%);
+    --gradient-surface: linear-gradient(180deg, hsl(210 20% 98%) 0%, hsl(210 15% 96%) 100%);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 220 15% 11%;
+    --foreground: 210 15% 90%;
+
+    --card: 220 15% 14%;
+    --card-foreground: 210 15% 90%;
+
+    --popover: 220 15% 14%;
+    --popover-foreground: 210 15% 90%;
+
+    --primary: 180 40% 50%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 180 30% 20%;
+    --primary-dark: 180 45% 40%;
+
+    --secondary: 220 12% 18%;
+    --secondary-foreground: 210 15% 90%;
+
+    --muted: 220 10% 20%;
+    --muted-foreground: 210 12% 60%;
+
+    --accent: 200 45% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 55% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 142 45% 48%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 65% 55%;
+    --warning-foreground: 0 0% 100%;
+
+    --border: 220 12% 22%;
+    --input: 220 12% 20%;
+    --ring: 180 40% 50%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* Material-style focus rings */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+  }
+}
+
+@layer utilities {
+  /* Material elevation utilities */
+  .elevation-1 {
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .elevation-2 {
+    box-shadow: var(--shadow-md);
+  }
+  
+  .elevation-3 {
+    box-shadow: var(--shadow-lg);
+  }
+  
+  .elevation-4 {
+    box-shadow: var(--shadow-xl);
+  }
+  
+  /* Smooth transitions */
+  .transition-smooth {
+    transition: var(--transition-base);
+  }
+  
+  .transition-quick {
+    transition: var(--transition-fast);
+  }
+  
+  /* Material ripple effect (simulated with hover) */
+  .ripple {
+    @apply relative overflow-hidden;
+  }
+  
+  .ripple::after {
+    content: '';
+    @apply absolute inset-0 bg-foreground/0 transition-all duration-300;
+  }
+  
+  .ripple:active::after {
+    @apply bg-foreground/10;
+  }
+}
